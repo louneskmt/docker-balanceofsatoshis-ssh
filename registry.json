@@ -1,0 +1,21 @@
+{
+	"id": "balanceofsatoshis",
+	"category": "Lightning Node Management",
+	"name": "Balance of Satoshis",
+	"version": "master",
+	"tagline": "Tool for working with the balance of your satoshis on LND",
+	"description": "Custom Umbrel app brought to you by @lounes_kmt. If you have an issue, please contact me directly on Twitter.",
+	"developer": "Alex Bosworth",
+	"website": "https://github.com/alexbosworth/balanceofsatoshis",
+	"dependencies": [ 
+		"lnd" 
+	],
+	"repo": "https://github.com/alexbosworth/balanceofsatoshis",
+	"support": "https://github.com/alexbosworth/balanceofsatoshis",
+	"port": 8765,
+	"gallery": [],
+	"path": "/",
+	"defaultUsername": "umbrel",
+	"deterministicPassword": true,
+	"torOnly": false
+  }

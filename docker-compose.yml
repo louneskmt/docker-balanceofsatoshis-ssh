@@ -1,0 +1,37 @@
+version: "3.7"
+
+services:
+  wetty:
+    image: louneskmt/wetty:v2.1.1
+    tty: true
+    ports:
+      - "$APP_BOS_PORT:$APP_BOS_PORT"
+    environment: 
+      TITLE: Balance of Satoshis
+      HOST: 0.0.0.0
+      PORT: $APP_BOS_PORT
+      BASE: /
+      SSHHOST: bos
+      SSHPORT: 22
+      SSHUSER: umbrel
+    networks:
+      default:
+        ipv4_address: $APP_BOS_WETTY_IP
+
+  bos:
+    container_name: balanceofsatoshis
+    build: ./bos
+    tty: true
+    volumes:
+      - ${APP_DATA_DIR}/data:/home/umbrel/.bos
+      - ${LND_DATA_DIR}:/lnd:ro
+    environment:
+      - LND_IP="$LND_IP"
+      - LND_PORT="$LND_GRPC_PORT"
+      - NETWORK="$BITCOIN_NETWORK"
+    expose:
+      - 22
+    networks:
+      default:
+        ipv4_address: $APP_BOS_IP
+    
