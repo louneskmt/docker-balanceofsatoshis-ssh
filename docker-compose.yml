@@ -19,8 +19,8 @@ services:
         ipv4_address: $APP_BOS_WETTY_IP
 
   bos:
+    image: louneskmt/balanceofsatoshis-ssh:latest
     container_name: balanceofsatoshis
-    build: ./bos
     tty: true
     volumes:
       - ${APP_DATA_DIR}/data:/home/umbrel/.bos
