@@ -28,11 +28,11 @@ EOF
 
 # Configure motd (SSH welcome message)
 cat <<EOF > /etc/motd
-######################### \n
-#        UMBREL         # \n
-#  Balance Of Satoshis  # \n
-######################### \n
+#########################
+#        UMBREL         #
+#  Balance Of Satoshis  #
+#########################
 EOF
 
-service ssh start
+mkdir -p /run/sshd
 /usr/sbin/sshd -D
