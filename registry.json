@@ -1,6 +1,6 @@
 {
 	"id": "balanceofsatoshis",
-	"category": "Lightning Node Management",
+	"category": "Custom",
 	"name": "Balance of Satoshis",
 	"version": "master",
 	"tagline": "Tool for working with the balance of your satoshis on LND",

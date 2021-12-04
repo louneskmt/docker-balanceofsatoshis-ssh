@@ -23,7 +23,7 @@ services:
     container_name: balanceofsatoshis
     tty: true
     volumes:
-      - ${APP_DATA_DIR}/data:/home/umbrel/.bos
+      - ${APP_DATA_DIR}/data:/home/umbrel
       - ${LND_DATA_DIR}:/lnd:ro
     environment:
       - LND_IP=$LND_IP
