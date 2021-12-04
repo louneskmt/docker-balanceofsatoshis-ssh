@@ -10,6 +10,10 @@ RUN ln -s /app/bos /usr/local/bin
 RUN apt-get update \
  && apt-get install -y openssh-server
 
+# Change node uid/gid
+RUN groupmod -g 1001 node \
+ && usermod -u 1001 -g 1001 node
+
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 

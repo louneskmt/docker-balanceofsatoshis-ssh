@@ -11,7 +11,8 @@ export BOS_DEFAULT_SAVED_NODE=${BOS_NODE_NAME}
 
 # Create user
 id -u ${USER_NAME} &>/dev/null || {
-	useradd -rm -d /home/${USER_NAME} -s /bin/bash ${USER_NAME}
+	useradd -rm -d /home/${USER_NAME} -u 1000 -s /bin/bash ${USER_NAME}
+  groupmod -g 1000 ${USER_NAME}
 	echo "${USER_NAME}:${USER_PASSWORD}" | chpasswd
 }
 
@@ -26,12 +27,16 @@ cat <<EOF > ${BOS_NODE_PATH}/credentials.json
 }
 EOF
 
+chown -R 1000:1000 ${BOS_NODE_PATH}
+
 # Configure motd (SSH welcome message)
 cat <<EOF > /etc/motd
+
 #########################
 #        UMBREL         #
 #  Balance Of Satoshis  #
 #########################
+
 EOF
 
 mkdir -p /run/sshd

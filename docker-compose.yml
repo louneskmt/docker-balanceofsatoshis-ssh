@@ -29,6 +29,8 @@ services:
       - LND_IP=$LND_IP
       - LND_PORT=$LND_GRPC_PORT
       - NETWORK=$BITCOIN_NETWORK
+      - USER_NAME=umbrel
+      - USER_PASSWORD=$APP_PASSWORD
     expose:
       - 22
     networks:
